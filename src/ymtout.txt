@@ -1,0 +1,41 @@
+﻿B# SPFLI                          Flight schedule
+MANDT  S_MANDT  X  T000  C  000003  000000    CLNT  Client
+CARRID  S_CARR_ID  X  SCARR  C  000003  000000    CHAR  Airline Code
+CONNID  S_CONN_ID  X    N  000004  000000    NUMC  Flight Connection Number
+COUNTRYFR  LAND1  .  SGEOCITY  C  000003  000000    CHAR  Country Key
+CITYFROM  S_FROM_CIT  .  SGEOCITY  C  000020  000000    CHAR  Departure city
+AIRPFROM  S_FROMAIRP  .  SAIRPORT  C  000003  000000    CHAR  Departure airport
+COUNTRYTO  LAND1  .  SGEOCITY  C  000003  000000    CHAR  Country Key
+CITYTO  S_TO_CITY  .  SGEOCITY  C  000020  000000    CHAR  Arrival city
+AIRPTO  S_TOAIRP  .  SAIRPORT  C  000003  000000    CHAR  Destination airport
+FLTIME  S_FLTIME  .    X  000010  000000    INT4  Flight time
+DEPTIME  S_DEP_TIME  .    T  000006  000000    TIMS  Departure time
+ARRTIME  S_ARR_TIME  .    T  000006  000000    TIMS  Arrival time
+DISTANCE  S_DISTANCE  .    P  000009  000004  SPFLI  QUAN  Distance
+DISTID  S_DISTID  .  *  C  000003  000000    UNIT  Mass unit of distance (kms, miles)
+FLTYPE  S_FLTYPE  .    C  000001  000000    CHAR  Flight type
+PERIOD  S_PERIOD  .    X  000003  000000    INT1  Arrival n day(s) later
+E# SPFLI                          Flight schedule
+--------------------------------------------- ---------------------------------------------
+B# SFLIGHT                        Flight
+MANDT  S_MANDT  X  T000  C  000003  000000    CLNT  Client
+CARRID  S_CARR_ID  X  SCARR  C  000003  000000    CHAR  Airline Code
+CONNID  S_CONN_ID  X  SPFLI  N  000004  000000    NUMC  Flight Connection Number
+FLDATE  S_DATE  X    D  000008  000000    DATS  Flight date
+PRICE  S_PRICE  .    P  000015  000002  SFLIGHT  CURR  Airfare
+CURRENCY  S_CURRCODE  .  SCURX  C  000005  000000    CUKY  Local currency of airline
+PLANETYPE  S_PLANETYE  .  SAPLANE  C  000010  000000    CHAR  Aircraft Type
+SEATSMAX  S_SEATSMAX  .    X  000010  000000    INT4  Maximum capacity in economy class
+SEATSOCC  S_SEATSOCC  .    X  000010  000000    INT4  Occupied seats in economy class
+PAYMENTSUM  S_SUM  .    P  000017  000002  SFLIGHT  CURR  Total of current bookings
+SEATSMAX_B  S_SMAX_B  .    X  000010  000000    INT4  Maximum capacity in business class
+SEATSOCC_B  S_SOCC_B  .    X  000010  000000    INT4  Occupied seats in business class
+SEATSMAX_F  S_SMAX_F  .    X  000010  000000    INT4  Maximum capacity in first class
+SEATSOCC_F  S_SOCC_F  .    X  000010  000000    INT4  Occupied seats in first class
+E# SFLIGHT                        Flight
+--------------------------------------------- ---------------------------------------------
+B# SCURX                          Currency for Workbench training data model BC_Travel
+CURRKEY  S_CURR  X    C  000005  000000    CUKY  Payment currency
+CURRDEC  CURRDEC  .    X  000003  000000    INT1  Number of decimal places
+E# SCURX                          Currency for Workbench training data model BC_Travel
+--------------------------------------------- ---------------------------------------------
